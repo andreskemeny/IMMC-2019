@@ -1,0 +1,415 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Project Titlepage Modified (v 0.1) by rcx
+%
+% Original Source: http://www.howtotex.com
+% Date: February 2014
+% 
+% This is a title page template which be used for articles & reports.
+% 
+% Add the hyperref package to your preamble
+%Links will show up in a colored box which will be invisible when you print it.
+%Use \href{URL}{DESCRIPTION} to add a link with description
+%Use \url{URL} to add a link without a description
+%Prepend your email address with mailto: to make it clickable and open your mail program.
+% 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+
+\usepackage{biblatex}
+\addbibresource{bibfile}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{\today}
+\fancyhead[R]{IMMC}
+\fancyfoot[R]{Page \thepage\ of \pageref{LastPage}}
+%-------------------------------------------------------------------------------
+% TITLE PAGE
+%-------------------------------------------------------------------------------
+
+
+\begin{document}
+\title{ \normalsize \textsc{International Mathematical Modeling Challenge}
+		\\ [2.0cm]
+		\HRule{2pt} \\ [0.5cm]
+		\LARGE \textbf{\uppercase{La Garant\'ia Extendida}}
+		\HRule{2pt} \\ [0.5cm]}
+
+
+%\author{
+%		1034511 \\
+%		Challenge Name \\ 
+%		Maimonides School }
+
+\maketitle
+\singlespace
+\renewcommand{\contentsname}{\'Indice} 
+\vfill
+\tableofcontents
+\vfill
+\newpage
+
+
+%-------------------------------------------------------------------------------
+% Section title formatting
+\sectionfont{\scshape}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% BODY
+%-------------------------------------------------------------------------------
+
+
+%-------------------------------------------------------------------------------
+% SECTION (REPLANTEAMIENTO DEL PROBLEMA)
+%-------------------------------------------------------------------------------
+\section*{Interpretaci\'on del problema}
+\addcontentsline{toc}{section}{Interpretaci\'on del problema}
+
+El problema consiste en que trabajamos para una empresa retail denominada Casa Matriz, empresa que por un lado est\'a buscando optimizar la cantidad de productos que tiene que encargar y por el otro establecer el precio que se debe emplear para satisfacer la demanda, y llegar a su meta de utilidad, sin comprar productos de sobra. La dificultad de el problema se encuentra en que todo esto debe ser satisfecho sabiendo que hay una ventana de garant\'ia. 
+\par
+De la forma en la cual el problema est\'a planteado, se abre un espacio a pensar de qu\'e manera resolver el problema: utilizar la utilidad como variable, o utilizar la utilidad como par\'ametro. Para hacer la utilidad variable tendr\'iamos que tomar los costos como restricciones y adem\'as tomar en cuenta la elasticidad de la demanda en relaci\'on al precio. Sin embargo, nuestro equipo entiende que el problema ha de ser resuelto de la segunda manera, en otras palabras, utilizaremos la utilidad como par\'ametro, simplificando el problema y al mismo tiempo logrando mayor eficiencia.
+
+%-------------------------------------------------------------------------------
+% SECTION (SUPUESTOS)
+%-------------------------------------------------------------------------------
+\section*{Supuestos}
+\addcontentsline{toc}{section}{Supuestos}
+
+
+\begin{enumerate}
+    \item La ventana de tiempo en el que estaremos trabajando ser\'a de un a\~no, en otras palabras, se puede encargar una vez al a\~no y la demanda es anual.
+    \item Si uno de los calefactores falla antes de los 3 meses, la reposici\'on de este no ser\'a incluida en el pedido de la compa\~n\'ia.
+    \item Suponemos que la demanda de este  ser\'a igual a la del a\~no anterior y se cumplir\'a exactamente, no m\'as, ni menos.
+    \item Los costos de transporte solo tomar\'an en cuenta los costos asociados al veh\'iculo (mantenci\'on, bencina, compra/arriendo, etc).
+    \item Los trabajadores, por m\'as que tengan distintos salarios, ser\'an todos tomados en cuenta en el mismo par\'ametro $W$.
+    \item Todos los productos llegar\'an el d\'ia en el que su llegada est\'a programada y en un buen estado.
+    \item Los meses de garant\'ia comenzar\'an a ser contados desde que el cliente lo compre, no desde que son comprados por la empresa retail.
+    \item La compa\~n\'ia se dedica \'unicamente a vender calefactores el\'ectricos.
+    \item Se cumple la probabilidad de garant\'ia en un $100\%$
+    \item Los valores de $W$ y $C_{t}$ son independientes de $E$
+    \item El precio de un almac\'en de cierto tama\~no es igual, independiente de la regi\'on en la que se encuentra.
+\end{enumerate}
+
+
+
+
+%-------------------------------------------------------------------------------
+% SECTION (EL MODELO)
+%-------------------------------------------------------------------------------
+
+\section*{El modelo}
+\addcontentsline{toc}{section}{El modelo}
+
+%-------------------------------------------------------------------------------
+% SECTION (LAS VARIABLES)
+%-------------------------------------------------------------------------------
+
+\subsection*{Las variables}
+\addcontentsline{toc}{subsection}{Las variables}
+
+Los valores que nosotros determinaremos (variables) son solamente dos, y est\'an descritos a continuaci\'on:
+
+\begin{enumerate}
+    \item El precio final por unidad que se debe establecer para llegar a la meta de utilidad:
+
+    $$P_{f} = \frac{C_{t}+C_{a}+C_{m}+(P_{i}\times E)+W+(\frac{U_{n}}{(1-I_{r})})}{D\times (1-I_{v})}$$
+    \item La cantidad de calefactores que la empresa debe pedir para poder satisfacer la demanda y no pedir calefactores de sobra.
+     $$E = D + F_{12}$$
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SECTION (LOS PARÁMETROS)
+%-------------------------------------------------------------------------------
+
+\subsection*{Los par\'ametros}
+\addcontentsline{toc}{subsection}{Los par\'ametros}
+Los par\'ametros que fueron deducidos y nos entreg\'o el problema son los siguientes:
+
+\begin{enumerate}
+    \item $P_{i} =$ Precio a pagar por el producto, tomando en cuenta el $CIF$ y $A_{i}$
+    \item $D =$ Demanda
+    \item $F_{3} =$ N\'umero de fallas antes de los 3 expresado en porcentaje
+    \item $F_{12} =$ N\'umero de fallas entre el $3^{er}$ y el $12^{vo}$ mes en unidades $= (D \, - \, D \, \times \, F_{3}) \, \times \, 0,05$
+    \item $U_{n} =$ Utilidad neta $= (P_{f} \times (1 - I_{v}) \times D - (C_{t}+C_{a}+C_{m}+W+(P_{i} \times E)))\times (1-I_{v})$
+    \item $C_{a} =$ Costo de almacenamiento total
+    \item $C_{t} =$ Costo de transporte total
+    \item $C_{m} =$ Costos totales de marketing
+    \item $W =$ Costo de fuerza de venta
+    \item $CIF =$ Costo de la mercanc\'ia $+$ prima del seguro $+$ valor del flete del traslado
+    \item $A_{i} =$ Aranceles de importaci\'on
+    \item $I_{v} =$ Impuestos de valor agregado $= 0,19$
+    \item $I_{r} =$ Impuesto a la renta $= 0,27$
+\end{enumerate}
+
+
+%-------------------------------------------------------------------------------
+% SECTION (VENTAJAS Y DESVENTAJAS)
+%-------------------------------------------------------------------------------
+
+\section*{Desventajas del modelo}
+\addcontentsline{toc}{section}{Desventajas del modelo}
+Dado que decidimos resolver el problema propuesto empleando el segundo m\'etodo, en otras palabras utilizando la utilidad como par\'ametro y no como variable, en el modelo evitamos varios costos colaterales y menores que de todas formas suman. Adicionalmente, otra desventaja podr\'ia ser el mantenimiento de valores constantes y no variables en funci\'on del pedido, siendo estos el costo de mano de obra, almacenamiento, transporte y marketing. Esto se debe a que hacerlos variables complicar\'ia mucho los c\'alculos y creemos que el prop\'osito o intenci\'on del ejercicio no va por ese lado.
+
+
+%-------------------------------------------------------------------------------
+% SECTION (EJEMPLIFICACIÓN)
+%-------------------------------------------------------------------------------
+
+\section*{Ejemplificaci\'on}
+\addcontentsline{toc}{section}{Ejemplificaci\'on}
+
+\subsection*{Variables y par\'ametros}
+\addcontentsline{toc}{subsection}{Variables y par\'ametros}
+
+\begin{enumerate}
+    \item Demanda ($D$): $150.000$
+    \item N\'umero de productos a encargar ($E$): $157.275$
+    \item Cantidad de fallas entre el $3^{er}$ y $12^{vo}$ mes ($E$): $7.275$
+    \item Costo de fuerza de venta ($W$): $\$10.528.000$
+    \item Costo de almacenamiento total ($C_{a}$): $\$261.833.000$
+    \item Costo de transporte total ($C_{t}$): $\$25.085.000$
+    \item Costos totales de marketing ($C_{m}$): $\$52.356.000$
+    \item Precio inicial del producto ($P_{i}$): $\$660.555.000$
+    \item Utilidad sin $I_{r}$ ($U_{i}$): $\$1.981.665.000$
+    \item Utilidad con $I_{r}$ ($U_{i}$): $\$2.714.609.589$
+\end{enumerate}
+
+\subsection*{Resoluci\'on}
+\addcontentsline{toc}{subsection}{Resoluci\'on}
+$$P_{f} = \frac{25.085.000+261.833.000+52.356.000+(684.146.250)+10.528.000+(1.033.948.250)}{121.500}$$
+
+$$P_{f} = \$20167$$
+
+$$E = 150.000 + 7.275$$
+
+$$E = 157.275$$
+
+
+
+%-------------------------------------------------------------------------------
+% SECTION (APÉNDICE DEMANDA)
+%-------------------------------------------------------------------------------
+
+\section*{Ap\'endice A}
+\addcontentsline{toc}{section}{Ap\'endice A}
+
+\subsection*{Ejemplificaci\'on de la demanda}
+\addcontentsline{toc}{subsection}{Ejemplificaci\'on de la demanda}
+Seg\'un el Censo del 2017 (referencia 1), en Chile hay 6.356.073 viviendas. De estas s\'olo estamos tomando en cuenta, para poder sacar la demanda de calefactores, las viviendas ubicadas en las regiones de Valpara\'iso, Metropolitana, Coquimbo y O'Higgins, ya que estamos asumiendo que las regiones ubicadas m\'as al norte no usan calefacci\'on (debido al c\'alido clima) y las ubicadas m\'as al sur usan tipos de calefacci\'on alternativas a la el\'ectrica (la le\~na por ejemplo). La cantidad de viviendas ubicadas en las cuatro regiones m\'as centrales va a ser 3.739.975 (Valpara\'iso $= 774.782$, Metropolitana $= 2.310.167$, Coquimbo $= 303.983$, O'Higgins $= 351.043$). En nuestro ejemplo se asume que las viviendas que se encuentran en estas regiones tienen los m\'etodos de calefacci\'on: El\'ectrica, gas licuado, parafina, gas natural y split calefactor, y la distribuci\'on de clientes por m\'etodo de calefacci\'on es igual por cada m\'etodo, es decir un 20\% de las viviendas en estas regiones ocupa calefacci\'on el\'ectrica, por lo tanto 747.995 hogares usar\'ian calefacci\'on por calefactores el\'ectricos. Adem\'as de esto, estamos asumiendo que nosotros cubrimos un 20\% del mercado de los calefactores el\'ectricos, implicando que nuestra demanda ser\'ia de 149.599 calefactores al a\~no, este \'ultimo valor lo aproximamos a 150.000 unidades.
+
+%-------------------------------------------------------------------------------
+% SECTION (APÉNDICE DEMANDA)
+%-------------------------------------------------------------------------------
+
+\section*{Ap\'endice B}
+\addcontentsline{toc}{section}{Ap\'endice B}
+
+\subsection*{C\'alculo de los productos a encargar}
+\addcontentsline{toc}{subsection}{C\'alculo de los productos a encargar}
+
+Para poder deducir la cantidad de productos que debemos encargar para cumplir con todos los requisitos que el problema nos pide a pesar de que haya una garant\'ia, debemos ocupar la formula para calcular $F_{12}$ y por lo tanto ocupar $F_{3}$ y a partir de eso sacar $E$. Por efectos de demostraci\'on nuestro $F_{3}$ valdr\'a 3\%.
+
+
+$$F_{12} = D - D \times F_{3} \times 0,05$$
+$$F_{12} = (150.000 - (150.000 \times 0.03)) \times 0.05$$
+$$F_{12} = 7275$$
+$$E = D + F_{12}$$
+$$E = 150.000 + 7.275$$
+$$E = 157.275$$
+
+
+
+
+%-------------------------------------------------------------------------------
+% SECTION (APÉNDICE WORKFORCE)
+%-------------------------------------------------------------------------------
+
+ \section*{Ap\'endice C}
+\addcontentsline{toc}{section}{Ap\'endice C}
+
+\subsection*{C\'alculo del costo de fuerza de venta}
+\addcontentsline{toc}{subsection}{C\'alculo del costo de fuerza de venta}
+
+Para poder obtener el valor que tendr\'a nuestro par\'ametro en el ejemplo, decidimos que la empresa que estamos ejemplificando tendr\'a un total de 14 empleados, con sueldos que est\'an descritos en la tabla a continuaci\'on.
+
+\begin{center}
+\begin{tabular}{||c c||} 
+    \hline
+    Trabajo & Salario \\ [0.5ex] 
+    \hline\hline
+    Conductor (x6) & $\$1.728.000$  \\ 
+    \hline
+    Contador (x1) & $\$1.050.000$  \\
+    \hline
+    Ingeniero en Finanzas (x1) & $\$1.750.000$  \\
+    \hline
+    Administrador de Negocios Internacionales (x1) & $\$1.050.000$  \\
+    \hline
+    Publicista (x1) & $\$1.050.000$  \\  
+    \hline
+    Ingeniero en Marketing (x1) & $\$950.000$  \\
+    \hline
+    Asistente Ejecutivo (x1) & $\$550.000$  \\
+    \hline
+    Ingeniero de Ejecuci\'on en Administraci\'on de Empresas (x1) & $\$1.050.000$  \\
+    \hline
+    Ingeniero en Transporte (x1) & $\$1.350.000$  \\ [1ex]
+    \hline
+\end{tabular}
+\end{center}
+
+\begin{center}
+Bas\'andonos en la tabla anterior (referencia 2) podemos establecer el valor de $W$ como:
+\end{center}
+$$W = suma\: de\: los\: salarios\: de\: todos\: los\: trabajadores$$
+$$W = \$10.528.000$$
+
+\section*{Ap\'endice D}
+\addcontentsline{toc}{section}{Ap\'endice D}
+
+\subsection*{C\'alculo del costo de almacenamiento}
+\addcontentsline{toc}{subsection}{C\'alculo costo de almacenamiento}
+
+Para desarrollar nuestra ejemplificaci\'on y poner en acci\'on nuestras ecuaciones decidimos ocupar como referencia de precio una bodega que tiene las capacidades que estamos buscando (referencia 4). Esta bodega tiene un \'area de 466$m^{2}$ y una altura de 8$m$, lo que implica que tiene un volumen de aproximadamente 3600$m^{3}$. Para cubrir el espacio de nuestra mercader\'ia (cajas de $29 \times 14 \times 48.5 cm$) precisamos de s\'olo 3145.5$m^{3}$ ya que son 157.275 cajas de 0.02$m^{3}$ cada una. Nos sobrar\'ian 56.8$m^{2}$ que usar\'iamos para facilitar la movilidad dentro de la bodega. El arriendo de esta bodega cuesta $\$261.833.000$.
+
+
+\section*{Ap\'endice E}
+\addcontentsline{toc}{section}{Ap\'endice E}
+
+\subsection*{C\'alculo del costo total de transporte}
+\addcontentsline{toc}{subsection}{C\'alculo costo total de transporte}
+
+Nuestra ejemplificaci\'on obtendr\'a los datos de costos de transportes a partir de lo que cuesta arrendar un cami\'on con capacidades de transporte que satisface nuestras necesidades, sin contar los costos de combustible ya que complejizari\'a mucho los c\'alculos y creemos que es incidental en el precio final. El c\'alculo que utilizamos para lograr obtener este valor es el siguiente: Haremos 4 viajes diarios, por los primeros 29 d\'ias h\'abiles del a\~no, en 2 camiones con capacidad de 27 metros c\'ubicos cada uno, y para lograr movilizar toda la mercader\'ia haremos 116 viajes hacia las bodegas.
+
+
+\section*{Ap\'endice F}
+\addcontentsline{toc}{section}{Ap\'endice F}
+
+\subsection*{C\'alculo del costo total de marketing}
+\addcontentsline{toc}{subsection}{C\'alculo costo total de marketing}
+
+Para revisar los costos de marketing nos inspiramos en el costo que cobra una empresa de marketing por un servicio digital (costo que puede ser observado en la quinta referencia), estamos evitando los costos del resto de tipos de marketing debido a que complejizar\'ian mucho los c\'alculos y creemos que no son necesarios para lograr una buena venta en el \'ambito de los calefactores. El precio que ofrece la empresa por su servicio es 4.363.000 al mes, o, sea, $52.356.000$ al a\~no.
+
+\section*{Ap\'endice G}
+\addcontentsline{toc}{section}{Ap\'endice G}
+
+\subsection*{C\'alculo del precio inicial}
+\addcontentsline{toc}{subsection}{C\'alculo del precio inicial}
+
+El precio de compra que ocuparemos para los calefactores fue extra\'ido de la tercera referencia.
+
+$$P_{i} = 4.350 \times E$$
+$$P_{i} = 4.350 \times 157.275$$
+$$P_{i} = \$684.146.250$$
+
+
+
+
+%-------------------------------------------------------------------------------
+% REFERENCES
+%-------------------------------------------------------------------------------
+
+\section*{Referencias}
+\addcontentsline{toc}{section}{Referencias}
+
+\begin{enumerate}
+    \item https://www.censo2017.cl
+    \item http://www.mifuturo.cl/index.php/futuro-laboral/buscador-por-carrera-d-institucion
+    \item https://m.alibaba.com/product/60799543024/akira-halogen-beam-heater-calefactores-calentadores.html?s=p&spm=a2706.7843299.1998817009.1.5fa319b28DBQd6
+    \item http://www.urbac.cl/fichaPropiedad.aspx?i=6208&pa=1&or=1&d=&op=1&re=13&co=0&tp=17&tl=2
+    \item https://www.delosdigital.com/es/blog/cuanto-cuesta-una-campana-de-marketing-digital
+\end{enumerate}
+
+
+
+
+
+\end{document}
+
+%-------------------------------------------------------------------------------
+% SNIPPETS
+%-------------------------------------------------------------------------------
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{file_name}
+%	\caption{}
+%	\centering
+%	\label{label:file_name}
+%\end{figure}
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{graph}
+%	\caption{Blood pressure ranges and associated level of hypertension (American Heart Association, 2013).}
+%	\centering
+%	\label{label:graph}
+%\end{figure}
+
+%\begin{wrapfigure}{r}{0.30\textwidth}
+%	\vspace{-40pt}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{file_name}
+%	\end{center}
+%	\vspace{-20pt}
+%	\caption{}
+%	\label{label:file_name}
+%\end{wrapfigure}
+
+%\begin{wrapfigure}{r}{0.45\textwidth}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{manometer}
+%	\end{center}
+%	\caption{Aneroid sphygmomanometer with stethoscope (Medicalexpo, 2012).}
+%	\label{label:manometer}
+%\end{wrapfigure}
+
+%\begin{table}[!ht]\footnotesize
+%	\centering
+%	\begin{tabular}{cccccc}
+%	\toprule
+%	\multicolumn{2}{c} {Pearson's correlation test} & \multicolumn{4}{c} {Independent t-test} \\
+%	\midrule	
+%	\multicolumn{2}{c} {Gender} & \multicolumn{2}{c} {Activity level} & \multicolumn{2}{c} {Gender} \\
+%	\midrule
+%	Males & Females & 1st level & 6th level & Males & Females \\
+%	\midrule
+%	\multicolumn{2}{c} {BMI vs. SP} & \multicolumn{2}{c} {Systolic pressure} & \multicolumn{2}{c} {Systolic Pressure} \\
+%	\multicolumn{2}{c} {BMI vs. DP} & \multicolumn{2}{c} {Diastolic pressure} & \multicolumn{2}{c} {Diastolic pressure} \\
+%	\multicolumn{2}{c} {BMI vs. MAP} & \multicolumn{2}{c} {MAP} & \multicolumn{2}{c} {MAP} \\
+%	\multicolumn{2}{c} {W:H ratio vs. SP} & \multicolumn{2}{c} {BMI} & \multicolumn{2}{c} {BMI} \\
+%	\multicolumn{2}{c} {W:H ratio vs. DP} & \multicolumn{2}{c} {W:H ratio} & \multicolumn{2}{c} {W:H ratio} \\
+%	\multicolumn{2}{c} {W:H ratio vs. MAP} & \multicolumn{2}{c} {\% Body fat} & \multicolumn{2}{c} {\% Body fat} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Height} & \multicolumn{2}{c} {Height} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Weight} & \multicolumn{2}{c} {Weight} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Heart rate} & \multicolumn{2}{c} {Heart rate} \\
+%	\bottomrule
+%	\end{tabular}
+%	\caption{Parameters that were analysed and related statistical test performed for current study. BMI - body mass index; SP - systolic pressure; DP - diastolic pressure; MAP - mean arterial pressure; W:H ratio - waist to hip ratio.}
+%	\label{label:tests}
+%\end{table}

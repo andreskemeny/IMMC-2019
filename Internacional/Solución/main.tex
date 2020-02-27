@@ -1,0 +1,1005 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LaTeX Template: Project Titlepage Modified (v 0.1) by rcx
+%
+% Original Source: http://www.howtotex.com
+% Date: February 2014
+% 
+% This is a title page template which be used for articles & reports.
+% 
+% Add the hyperref package to your preamble
+%Links will show up in a colored box which will be invisible when you print it.
+%Use \href{URL}{DESCRIPTION} to add a link with description
+%Use \url{URL} to add a link without a description
+%Prepend your email address with mailto: to make it clickable and open your mail program.
+% 
+% 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{report}
+\usepackage[spanish]{babel}
+\usepackage[a4paper]{geometry}
+\usepackage[myheadings]{fullpage}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx, wrapfig, subcaption, setspace, booktabs}
+\usepackage[T1]{fontenc}
+\usepackage[font=small, labelfont=bf]{caption}
+\usepackage{amsmath}
+\usepackage[protrusion=true, expansion=true]{microtype}
+\usepackage[english]{babel}
+\usepackage{sectsty}
+\usepackage{url, lipsum}
+\usepackage{dirtytalk}
+\usepackage{amsmath}
+\DeclareMathOperator{\Max}{Max}
+\usepackage[short]{optidef}
+\usepackage{color}
+\usepackage{listings}
+\usepackage{enumitem}
+ 
+\urlstyle{same}
+
+\usepackage{biblatex}
+\addbibresource{bibfile}
+
+\newcommand{\HRule}[1]{\rule{\linewidth}{#1}}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+
+%-------------------------------------------------------------------------------
+% HEADER & FOOTER
+%-------------------------------------------------------------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\setlength\headheight{15pt}
+\fancyhead[L]{\today}
+\fancyhead[R]{IMMC}
+\fancyfoot[R]{P\'agina \thepage\ de \pageref{LastPage}}
+%-------------------------------------------------------------------------------
+% TITLE PAGE
+%-------------------------------------------------------------------------------
+
+
+\begin{document}
+\title{ \normalsize \textsc{International Mathematical Modeling Challenge}
+		\\ [2.0cm]
+		\HRule{2pt} \\ [0.5cm]
+		\LARGE \textbf{\uppercase{Capacidad de carga del Planeta Tierra}}
+		\HRule{2pt} \\ [0.5cm]}
+
+
+%\author{
+%		1034511 \\
+%		Challenge Name \\ 
+%		Maimonides School }
+
+\maketitle
+\singlespace
+\renewcommand{\contentsname}{\'Indice} 
+\vfill
+\tableofcontents
+\vfill
+\newpage
+
+
+%-------------------------------------------------------------------------------
+% Section title formatting
+\sectionfont{\scshape}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% BODY
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% SECTION (RESUMEN EJETUTIVO)
+%-------------------------------------------------------------------------------
+\section*{Resumen Ejecutivo}
+\addcontentsline{toc}{section}{Resumen Ejecutivo}
+La problem\'atica a resolver es la de maximizar la poblaci\'on humana en el planeta tierra respetando las condiciones y tecnolog\'ias actuales. Adem\'as se solicitan tres posibles soluci\'ones.
+En un comienzo se interpret\'o el problema de manera que la soluci\'on consist\'ia en lograr calcular la cantidad de gente que pod\'ia habitar el planeta con exactamente los mismos est\'andares de vida actuales, lo que significa que la gente podr\'ia vivir en mansiones o en caba\~nas peque\~nas dependiendo de su situaci\'on econ\'omica. Que cada persona tendr\'ia una cantidad de ropa enorme comparada con la estrictamente necesaria. Adem\'as, habr\'ia implicado que los espacios de entretenimiento y ocio habr\'ian ocupado mucho lugar, reduciendo el numero de posibles habitantes en la tierra, puesto que estas instalaciones implican mucho espacio. Adem\'as, el sistema de banco, salud y servicios p\'ublicos como lo tenemos hoy, tambi\'en habr\'ia significado mucho lugar. 
+Seg\'un esta interpretaci\'on, para resolver el problema se habr\'ia tenido que calcular el espacio que ocupa una persona hoy en d\'ia, considerando el banco, hospital, mall, calle, estacionamiento, parque etc. y dividir la cantidad de espacio disponible en la tierra por ese numero. Al ver que este calculo era demasiado simple para un problema de tanto calibre, se decidi\'o que esta interpretaci\'on era err\'onea. 
+  Gracias a esta ultima conclusi\'on la interpretaci\'on del problema pas\'o a ser una muy diferente, la cual se ve desarrollada durante todo el modelo. Esta consiste en que el resultado  esta calculado a partir de un ser humano viviendo con lo justo y necesario para poder subsistir, es decir, comida, bebida, vivienda, ropa, electricidad y oxigeno. El resto de las exigencias que se mencionaron en la interpretaci\'on anterior no son vitales, y por lo tanto, se omitir\'an en el desarrollo del problema. Esto implicar\'ia tambi\'en, que la cantidad de gente que puede habitar la tierra va a ser mayor por dos razones. Primeramente, porque todos los vicios de la sociedad hoy en d\'ia ocupan mucho lugar, el cual podr\'ia ser utilizado para albergar personas. Adem\'as de ocupar espacio, estas exigencias requieren tambi\'en recursos naturales limitados en cantidad, y vitales para nuestra supervivencia, reduciendo el numero de posibles habitantes en la tierra.  
+  
+  El factor que hace que este modelo sea considerando superior que el resto es que al divisar un factor que no se vea incluido en la formula original, este puede ser incluido en el calculo sin necesidad de cambiar la ecuaci\'on matem\'atica. Esto es posible ya que la inc\'ognita "vivienda", est\'a dise\~nada de tal manera que todas las necesidades dispensables de un ser humano pueden ser incluidas en caso de necesidad. 
+  Al sacar la relaci\'on entre el espacio total requerido para cierta necesidad y la cantidad de personas que podr\'ian ocuparla, da por resultado la cantidad de lugar destinado a una sola persona para que pueda satisfacer dicha necesidad. Al sumar este resultado al valor que indica la necesidad de vivienda, \'este pasa de ser un valor que indicaba \'unicamente la necesidad de residencia a uno nuevo que ahora indica tanto la nueva necesidad que se agreg\'o como la antigua tambi\'en, siendo \'esta vivienda. Este valor se introduce en la ecuaci\'on matem\'atica como el nuevo valor que originalmente estaba ocupado por "vivienda". 
+
+
+%-------------------------------------------------------------------------------
+% SECTION (REPLANTEAMIENTO DEL PROBLEMA)
+%-------------------------------------------------------------------------------
+\section*{Interpretaci\'on del problema}
+\addcontentsline{toc}{section}{Interpretaci\'on del problema}
+
+El problema presentado requiere de la formulaci\'on de un  modelo que determine la capacidad de carga actual de la Tierra tomando en cuenta las condiciones y tecnolog\'ia disponible actualmente. Parte esencial d\'e la resoluci\'on de este problema es comprender a qu\'e se refiere con  ``condiciones y tecnolog\'ia actual'',asumiendo de este modo el hecho que la soluci\'on debe ser compatible con el mundo tal cual lo conocemos f\'isicamente hoy (clima, geograf\'ia, etc.) y que la soluci\'on que se proponga sea factible utilizando la tecnolog\'ia actualmente diponible. Esto se puede entender de dos maneras: Una de estas ser\'ia que se debe crear un mundo en condiciones de supervivencia, es decir, usando el m\'inimo indispensable de los productos vitales, la segunda ser\'ia recrear una sociedad tal como la conocemos hoy en d\'ia. En ambos casos sacando la carga m\'axima y respetando sus respectivos par\'ametros. Una vez claros los objetivos, se deben
+que seguir los siguientes pasos:
+\begin{enumerate}
+  \item Identificar y analizar los principales factores limitantes de la capacidad de carga de la Tierra para la supervivencia humana bajo las condiciones actuales. 
+  \item Utilizar un modelo matem\'atico para determinar la capacidad de carga actual de la Tierra que permita la vida humana, dadas las condiciones y la tecnolog\'ia actual.
+  \item Proponer soluciones reales fundamentadas en investigaci\'on para aumentar la capacidad de carga de la Tierra, tomando en cuenta las condiciones futuras.
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SECTION (Factores limitantes para la capacidad de carga)
+%-------------------------------------------------------------------------------
+\section*{Factores limitantes para la capacidad de carga}
+\addcontentsline{toc}{section}{Factores limitantes para la capacidad de carga}
+El siguiente listado menciona los factores m\'as importantes que limitan la capacidad de carga de la Tierra para la vida humana, conclusi\'on basada en el libro "Motivaci\'on y Personalidad" de Abraham Maslow (Abraham Moslow, 1962, p.88). 
+\begin{enumerate}
+    \item Comida
+    \item Agua
+    \item Ropa
+    \item Ox\'igeno
+    \item Electricidad
+    \item Vivienda
+\end{enumerate}
+Es importante aclarar que Maslow sostiene que para que un ser humano pueda vivir debe tener acceso a casi todos los puntos presentes en el listado previo, sin embargo, adem\'as de los requisitos listados anteriormente, hay otras necesidade impl\'icitas en la conclusi\'on del autor, es decir, que son necesarias para el cumplimiento de lo ya mencionado.  Se debe tener en cuenta que todas las limitantes se reducen al factor espacio, y por lo tanto, si una necesidad indispensable no ocupa espacio, no es considerada como una limitante. 
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (COMIDA)
+%-------------------------------------------------------------------------------
+\subsection*{Comida}
+\addcontentsline{toc}{subsection}{Comida}
+La comida es un elemento vital en la supervivencia del ser humano, una persona puede sobrevivir aproximadamente un mes sin consumir alimentos, esto indica lo indispensable que es esto para el ser humano. Para que las personas puedan obtener comida se necesitan establecimientos de producci\'on, los cuales ocupan espacio y por lo tanto son considerados un factor limitante.
+%-------------------------------------------------------------------------------
+% SUBSECTION (VIVIENDA)
+%-------------------------------------------------------------------------------
+\subsection*{Vivienda}
+\addcontentsline{toc}{subsection}{Vivienda}
+Seg\'un la RAE, "Vivienda"  se define como un lugar cerrado y cubierto construido para ser habitado por personas (Real Academia Espa\~nola, 2019). Todo ser humano necesita un techo bajo el que vivir para protegerse de situaciones adversas, ya sea el clima, animales u otro tipo de amenaza. Est\'a claro que una vivienda usa espacio, y al ser \'este nuestra limitante principal, al usarlo las viviendas se transforman en limitantes tambi\'en.
+%-------------------------------------------------------------------------------
+% SUBSECTION (AGUA)
+%-------------------------------------------------------------------------------
+\subsection*{Agua}
+\addcontentsline{toc}{subsection}{Agua Potable}
+El ser humano necesita consumir cierta cantidad de agua al d\'ia, los estudios indican que se puede sobrevivir entre tres y cinco d\'ias sin ella. Esto indica la alta importancia que tiene la obtenci\'on de agua, y por lo tanto lo esenciales que son las estaciones de tratamiento de \'esta, las estaciones de tratamiento de esta, las cuales ocupan espacio. Al ser el espacio nuestra principal limitante el agua se transforma en una limitante tambi\'en. 
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (ROPA)
+%-------------------------------------------------------------------------------
+\subsection*{Ropa}
+\addcontentsline{toc}{subsection}{Ropa}
+John Denton establece en su publicaci\'on ``Society and the official world: a reintroduction to sociology'' (John Denton , 1990), que la vestimenta es una de las necesidades primordiales del ser humano, ya que si no disponen de ella no tendr\'an protecci\'on contra las condiciones clim\'aticas adversas. Esto significa que l\'as f\'abricas de ropa son indispensables, y como estas ocupan espacio, y esta una limitante, la ropa se transforma autom\'aticamente en una.
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (OXIGENO)
+%-------------------------------------------------------------------------------
+\subsection*{Ox\'igeno}
+\addcontentsline{toc}{subsection}{Ox\'igeno}
+El cerebro de una persona aguanta aproximadamente cuatro minutos sin recibir ox\'igeno antes de sufrir una muerte irreversible de tejido cerebral y, por lo tanto, es imposible vivir sin ox\'igeno. Para efectos del modelo se tomar\'a como productores del ox\'igeno \'unicamente a las plantas terrestres. Dichas plantas usan espacio y debido a que el espacio es nuestra limitante principal, el ox\'igeno se transforma en una limitante. 
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (Energ\'ia)
+%-------------------------------------------------------------------------------
+\subsection*{Energ\'ia}
+\addcontentsline{toc}{subsection}{Energ\'ia}
+Sin la energ\'ia muchas de las necesidades b\'asicas del ser humano no podr\'ian ser cubiertas, o por lo menos no a gran escala. Por esta misma raz\'on la energ\'ia es una de las necesidades mas importantes de nuestro d\'ia a d\'ia. Al igual que los factores mencionados previamente en el documento, \'esta es una limitante porque su existencia ocupa espacio, que ser\'ia nuestra limitante principal. En este caso, ese espacio ocupado por centrales generadores el\'ectricos, sin los cuales no podr\'iamos tener energ\'ia.
+
+
+%-------------------------------------------------------------------------------
+% SECTION (EL MODELO)
+%-------------------------------------------------------------------------------
+
+\section*{El Modelo}
+\addcontentsline{toc}{section}{El Modelo}
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (INTRODUCCI\'ON AL MODEL)
+%-------------------------------------------------------------------------------
+\subsection*{Introducci\'on al Modelo}
+\addcontentsline{toc}{subsection}{Introducci\'on al Modelo}
+El modelo que vamos a plantear a continuaci\'on es un modelo que tiene como objetivo maximizar el numero de personas que pueden habitar el Planeta Tierra. Esto se logra a trav\'es de una funci\'on objetivo muy simple. Sin embargo, lleva varias restricciones que tienen como objetivo disminuir la cantidad posible de habitantes con tal de que el resultado sea m\'as realista. Estas restricciones tienen que ver con los distintos factores que se relacionan con espacio y debido a que este es, a fin de cuentas, nuestra \'unica limitante, se decidi\'o trabajar exclusivamente con ella y no tomar en cuenta factores cruciales para la vida que no se manifiestan en espacio.
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (Supuestos)
+%-------------------------------------------------------------------------------
+
+\subsection*{Supuestos}
+\addcontentsline{toc}{subsection}{Supuestos}
+\begin{enumerate}
+    \item La ropa est\'a compuesta \'unicamente por materiales sint\'eticos los cuales son producidos en la misma f\'abrica de ropa. Esto se debe a que utilizar materiales sint\'eticos ahorrar\'ia mucho una comparaci\'ion con la utilizaci\'ion de materiales naturales,. Una raz\'on por la cual conviene utilizar estos materiales es porque podr\'ia llegar a darce la cituacion de un caso en el que sea necesaria toda la tierra cultibable en el espacio terrestre, en ese caso no habr\'ia espacio para producir materiales para ropa (algod\'on). Para evitar este posible problema, se supondr\'a que los materiales para confeccionar ropa son \'unicamente sint\'eticos.  
+    \item Todas las personas son adultas e independientes. Este supuesto sirve para considerar que todos consumen la misma cantidad de recursos y ocupan la misma cantidad de espacio, lo que facilitar\'ia los c\'alculos notablemente.
+    \item Los huertos (plantaciones) crecen y se cosechan sin complicaciones ni fallas de alg\'un tipo. Esto se debe a que no hay margen de error en la comida, es una raz\'on exacta de comida por persona, por lo tanto si falla una cosecha va a haber gente que no va a comer de esa cosecha.
+    \item Por el hecho que el modelo fue creado para un alcance justo (es decir, si no se cosecha lo esperado de cada metro cuadrado de planta cuando se espere que se coseche). Es necesario que en el tiempo 0 ya haya suficiente comida para el primer a\~no y que esa comida no se malogre, ya que de otra forma se tendr\'ia que esperar hasta la primera cosecha para comer y la gente se morir\'ia. Adem\'as, cuando se coseche en el hemisferio norte no se va a poder cosechar en el hemisferio sur dado a las condiciones clim\'aticas. El problema con esto es que sin este supuesto se morir\'ia la mitad de la poblaci\'on ya que solo est\'a lista la cosecha del hemisferio norte (asumiendo que est\'an divididas equitativamente).
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (PAR\'aMETROS)
+%-------------------------------------------------------------------------------
+
+\subsection*{Par\'ametros}
+\addcontentsline{toc}{subsection}{Par\'ametros}
+
+
+\begin{enumerate}
+    \item $T_{C}$ = Superficie cultivable de la tierra en $m^{2}$ = Porcentaje cultivable $\cdot$ T
+    \item $T_{H}$ = Superficie habitable de la tierra en $m^{2}$ = Porcentaje habitable $\cdot$ T
+    \item $T$ = Superficie terrestre en $m^{2}$. 
+    \item $M_{V}$ = Espacio por vivienda en $m^{2}$. 
+    \item $C_{kcal}$ = Cantidad de kilocalor\'ias que necesita una persona al a\~no. 
+    \item $C_{AP}$ = Cantidad de agua que necesita una persona al a\~no $(Litros)$.
+    \item $C_{R}$ = Cantidad de metros tela para ropa que necesita una persona al a\~no. 
+    \item $C_{O2}$ = Cantidad de ox\'igeno que necesita una persona al a\~no $(Litros)$. 
+    \item $C_{E}$ = Energ\'ia representada por persona en $m^{2}$. 
+    \item $R_{kcal}$ = Rendimiento\footnote{Por rendimiento se da a entender que tanto satisface la necesidad por cada $m^{2}$, en general va a ser la producci\'on total por $m^{2}$, pero en el caso de vivienda va a ser la cantidad de viviendas que caben en este espacio.} de la comida por metro cuadrado al a\~no 
+    \item $R_{AP}$ = Rendimiento agua potable. Cantidad de litros que se pueden filtrar al a\~no por $m^{2}$
+    \item $R_{R}$ = Rendimiento de Ropa. Cantidad de vestimenta que se elabora al a\~no por $m^{2}$
+    \item $R_{V}$ = Rendimiento de las viviendas. Cantidad de vestimenta que se elabora al a\~no por $m^{2}$
+    \item $R_{O2}$ = Rendimiento de ox\'igeno. Cantidad de litros de ox\'igeno que se producen al a\~no por $m^{2}$.
+    \item $R_{EN}$ = Rendimiento de energ\'ia. Cantidad de watts de energ\'ia que se producen al a\~no por $m^{2}$.
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (VARIABLES)
+%-------------------------------------------------------------------------------
+
+\subsection*{Variables}
+\addcontentsline{toc}{subsection}{Variables}
+
+
+\begin{enumerate}
+    \item $NP$ = Numero de personas habitando la tierra 
+
+    \item $N_{kcal}$ = Cantidad total de kilocalor\'ias  producida al a\~no = ${R_{kcal} \cdot E_{kcal}}$.
+      
+    \item $E_{kcal}$ = Espacio que se usa para cultivar $m^{2}$.
+    
+    \item $N_{AP}$ = Cantidad total de agua potable producida en Litros al a\~no = $R_{AP}  \cdot E_{AP}$
+    
+    \item $E_{AP}$ = Espacio que se usa para tratar el agua $m^{2}$. 
+    
+    \item $N_{R}$ = Cantidad total de ropa producida (Numero de prendas,conjuntos o metros?) = $R_{V} \cdot E_{R}$
+    
+    \item  $E_{R}$ = Espacio dedicado a la producci\'on de vestimenta
+    
+    \item $N_{O2}$ = Cantidad de ox\'ogeno producido $(Litros)$ = $R_{O2} \cdot E_{O2}$
+    
+    \item $E_{O2}$ = Espacio para producci\'on de ox\'igeno $m^{2}$.
+    
+    \item $N_{E}$ = Energ\'ia necesaria para satisfacer todo = $C_{E} \cdot NP$
+    
+    \item $E_{E}$ = Espacio de generadores de energ\'ia en $m^{2}$. 
+    
+    \item $E_{V}$ = Espacio que ocupan todas las viviendas en $m^{2}$ = $M_{V} \cdot N_{V}$ 
+    
+    \item $N_{V}$ = N\'umero de viviendas = $\frac{E_{V}}{M_{V}}$ 
+     
+
+\end{enumerate}
+
+
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (FUNCION OBJETIVO)
+%-------------------------------------------------------------------------------
+\subsection*{Funci\'on objetivo}
+\addcontentsline{toc}{subsection}{Funci\'on objetivo}
+
+$$max \, \, \, NP$$
+La idea que subyace a esta funci\'on es poder maximizar la cantidad de gente que habita en la tierra. A primera vista no tiene l\'imite, sin embargo la magia de los li\'imites va a estar presentes en las restricciones que enumeraremos a continaci\'on.  \\
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (RESTRICCIONES)
+%-------------------------------------------------------------------------------
+\newpage
+\subsection*{Restricciones}
+\addcontentsline{toc}{subsection}{Restricciones}
+
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (GENERAL)
+%-------------------------------------------------------------------------------
+\subsubsection*{Globales}
+\addcontentsline{toc}{subsubsection}{Globales}
+$$E_{kcal} + E_{E} + E_{AP} + E_{R} + E_{O2} \leq T_{H}$$
+La suma de todos los espacios que se usan para cubrir las distintas necesidades, con excepci\'on del espacio para la comida, tiene que ser menor o igual al espacio habitable. Va a ser igual en caso de que se use absolutamente todo el espacio habitable, y menor en caso contrario.
+\\
+$$E_{C} \leq T_{C}$$
+Indica que el espacio cultivado tiene que ser menor o igual a la tierra cultivable. Va a ser igual en caso de que se cultive en todo el espacio cultivable y menor en otro caso.
+\\
+$$T_{H} + T_{C} \leq T$$
+La suma de el espacio habitable y el espacio cultivable tiene que ser igual o menor a la superficie terrestre de la tierra. Va a ser igual en caso de que no existan espacio no habitables y menor en el caso contrario.
+\\
+
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (COMIDA)
+%-------------------------------------------------------------------------------
+\subsubsection*{Comida}
+\addcontentsline{toc}{subsubsection}{Comida}
+$$NP \leq \frac{N_{kcal}}{C_{kcal}}$$
+El n\'umero de personas no puede ser mayor a la cantidad de comida que se produce dividida por la cantidad que necesita consumir una persona, de lo contrario habr\'ia gente sin suficiente alimento. 
+\\
+$$N_{kcal} = E_{kcal} \cdot R_{kcal}$$
+La cantidad de kilocalor\'ias que se produce tiene que ser igual al espacio necesario para cultivar la comida por el rendimiento que tiene un metro cuadrado de cuiltivo.
+\\
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (VIVIENDA)
+%-------------------------------------------------------------------------------
+\newpage
+\subsubsection*{Vivienda}
+\addcontentsline{toc}{subsubsection}{Vivienda}
+
+$$NP \leq N_{v}$$
+La cantidad de personas es equivalente al n\'umero de viviendas que hay, pues asumimos que vive una persona por  vivienda.
+
+$$N_{v} = E_{v} \cdot R_{v}$$
+El numero de viviendas que se produce tiene que ser igual al espacio necesario para viviendas por el rendimiento que tiene un metro cuadrado de vivienda.
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (AGUA POTABLE)
+%-------------------------------------------------------------------------------
+\subsubsection*{Agua Potable}
+\addcontentsline{toc}{subsubsection}{Agua Potable}
+$$NP \leq \frac{N_{AP}}{C_{AP}}$$
+El n\'umero de personas no puede ser mayor a la cantidad de agua potable que se produce dividida por la cantidad que necesita consumir una persona, de lo contrario habr\'ia gente sin suficiente agua.
+\\
+$$N_{AP} = E_{AP} \cdot R_{AP}$$
+La cantidad de agua que se produce tiene que ser igual al espacio necesario para filrtrar  por el rendimiento que tiene un metro cuadrado de filtradora de agua.
+\\
+
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (ROPA)
+%-------------------------------------------------------------------------------
+\subsubsection*{Ropa}
+\addcontentsline{toc}{subsubsection}{Ropa}
+$$NP \leq \frac{N_{R}}{C_{R}}$$
+El n\'umero de personas no puede ser mayor a la cantidad de ropa que se produce dividida por la cantidad que se necesita para satisfacer la necesidad de vestimenta de una persona, de lo contrario habr\'ia gente sin satisfacer por completo su necesidad de vestimenta.
+\\
+$$N_{R} = E_{R} \cdot R_{R}$$
+La cantidad de ropa que se produce tiene que ser igual al espacio necesario para fabricar ropa por el rendimiento que tiene un metro cuadrado de fabrica de ropa.
+\\
+
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (OXIGENO)
+%-------------------------------------------------------------------------------
+\newpage
+\subsubsection*{Ox\'igeno}
+\addcontentsline{toc}{subsubsection}{Ox\'igeno}
+\\
+$$NP \leq \frac{N_{O}_{2}}{C_{O2}}  $$
+El n\'umero de personas no puede ser mayor a la cantidad de ox\'igeno que se produce, dividido en la cantidad de ox\'igeno que necesita una persona al a\~no. Dado que si fuese as\'i, las personas no tendr\'ian suficiente ox\'igeno.
+\\
+$$N_{O2} = E_{O2}\cdot R_{O2}$$
+El numero de oxigeno que se produce tiene que ser igual al espacio necesario para producir oxigeno por el rendimiento que tiene un metro cuadrado de oxigeno.
+\\
+
+%-------------------------------------------------------------------------------
+% SUBSUBSECTION (Energ\'ia)
+%-------------------------------------------------------------------------------
+\subsubsection*{Energ\'ia}
+\addcontentsline{toc}{subsubsection}{Energ\'ia}
+$$NP \leq \frac{N_{E}}{C_{E}}$$
+\\
+El n\'umero de personas no puede ser mayor a la cantidad de energ\'ia que se produce dividida por la cantidad que se necesita para satisfacer la necesidad de energ\'ia de una persona, de lo contrario habr\'ia gente sin satisfacer por completo su necesidad de energ\'ia.
+$$N_{E} = E_{E} \cdot R_{EN}$$
+La cantidad de energ\'ia que se produce tiene que ser igual al espacio necesario para producir esa energ\'ia por el rendimiento que tiene un metro cuadrado de energ\'ia.
+
+
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (VENTAJAS Y DESVENTAJAS)
+%-------------------------------------------------------------------------------
+\subsection*{Ventajas y desventajas}
+\addcontentsline{toc}{subsection}{Ventajas y desventajas}
+\subsubsection*{Desventajas}
+\addcontentsline{toc}{subsubsection}{Desventajas}
+\begin{enumerate}
+    \item En los a\~nos bisiestos se tendr\'a un d\'ia donde no hay comida, agua o energ\'ia debido a que todos los valores estan calculados para a\~nos de 365 d\'ias y un a\~no viciesto tiene 366.
+    \item El factor de que todos las personas sean adultos independientes que consumen la misma cantidad de cada uno de los distintos recursos no refleja fielmente la realidad. 
+    \item El supuesto que trata sobre empezar la producci\'on de comida antes de la llegada de los humanos a la tierra es poco real\'ista e incluso imposible ya que tiene que haber personas en el planeta para trabajar la tierra y no las hay. 
+    \item Asumir que ninguna de las plantaciones va a tener un problema y que se va a cosechar y plantar justo lo esperado es incre\'iblemente irealista. 
+    
+    \end{enumerate}
+
+\subsubsection*{Ventajas}
+\addcontentsline{toc}{subsubsection}{Ventajas}
+\begin{enumerate}
+    
+    \item El Modelo desarrollado por m\'as de haber sido planteado en un principio con valores para sobrevivir, si uno se fija bien las cinco categor\'ias primordiales elegidas contienen a cualquier otro tipo de espacio que puede exist\'ir. Por ejemplo: agregar cualquier otro tipo de servicio como basurales, tiendas, c\'arceles, edificios educacionales, edificios religiosos, hospitales, parques, espacios recreacionales, etc... Simplemente se calcula cuanto espacio en metros cuadrados se va a necesitar para cualquiera de estos servicios per c\'apita y se le suma al valor de metros cuadrados de vivienda para darte un nuevo valor por vivienda. 
+ 
+    
+
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SECTION (Ejemplificaci\'on)
+%-------------------------------------------------------------------------------
+\section*{El futuro}
+\addcontentsline{toc}{section}{El futuro}
+Hay una gama muy amplia de maneras para aumentar la capacidad de carga de la tierra sin embargo solo se mencionar\'an las de mayor influencia.
+
+\begin{enumerate}
+    \item Aumentar el rendimiento de la comida a trav\'es de la bioingenier\'ia, logrando que produzca m\'as calor\'ias en igual o menor espacio. Maureen Hanson y su equipo de la Universidad de Cornell han hecho experimentos en los cuales usan genes de cianobacterias para aumentar la velocidad con la que la planta fija el carbono. Esto producir\'ia una mayor densidad de alimentos por metro cuadrado de plantaci\'on, y esto aumentara la producci\`on junto a las prote\'inas por planta
+    \item Aumentar el rendimiento del ox\'igeno utilizando la bioingenier\'ia para aumentar la cantidad de oxigeno que un \'arbol produce. Como por ejemplo el Chrysalidocarpu Lutescens. 
+    \item Aumentar el rendimiento de la energ\'ia al hacer que se produzca m\'as en el mismo o menor espacio mejorando las maquinas que producen energ\'ia. 
+\end{enumerate}
+El rendimiento que tiene la ropa no esta incluido en el listado anterior ya que aumentar el rendimiento que tiene la ropa no implicar\'ia un cambio significativo, debido a que el modelo no es suficientemente sensible a las variables relacionadas a la ropa, por lo tanto el cambio no seria uno apreciable.
+\begin{enumerate}[resume]
+    \item Aumentar el espacio cultivable al hacer posible plantar en pisos de edificios. Al cultivar en edificios el espacio cultivable dejar\'a de ser un problema en dos dimensiones, y la soluci\'on se encuentra en la tercera dimensi\'on.
+    \item Aumentar el espacio habitable al construir edificios para las personas.
+    \item Aumentar el espacio habitable al convertir espacio no habitable, o espacio que no es parte de la superficie terrestre, en espacio habitable. Un ejemplo de esto es la isla de sealand, una isla artificial.
+    \item Convertir el espacio que se ocupa en v\'ias publicas en m\'as espacio para viviendas.
+    \item Agrandar el \'area cultivable utilizando invernaderos.
+\end{enumerate}
+
+%-------------------------------------------------------------------------------
+% SECTION (Ejemplificaci\'on)
+%-------------------------------------------------------------------------------
+\section*{Ejemplificaci\'on}
+\addcontentsline{toc}{section}{Ejemplificaci\'on}
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (INTRODUCCION)
+%-------------------------------------------------------------------------------
+\subsection*{Introducci\'on}
+\addcontentsline{toc}{subsection}{Introducci\'on}
+A continuaci\'on se presentar\'a un ejemplo del modelo en funcionamiento para poder evidenciar que va a resultar en valores razonables. Se usa la palabra razonable ya que se tendr\'a que adjudicar valores extra\'idos de la realidad actual a los par\'ametros, y al hacer esto, no siempre los resultados son exactos, sino m\'as bien, aproximados.
+
+%-------------------------------------------------------------------------------
+% SUBSECTION (PARAMETROS)
+%-------------------------------------------------------------------------------
+\subsection*{Par\'ametros}
+\addcontentsline{toc}{subsection}{Par\'ametros}
+\begin{enumerate}
+    \item $T_{C} =\, 0,37\,  \cdot\,  T$. La tierra cultivable es igual a 0,37 (porcentaje de tierra cultivable) por la superficie terrestre. Fuente\footnote{https://datos.bancomundial.org/indicador/ag.lnd.agri.zs}. 
+    
+    \item $T_{H} = 0,71 \cdot T$. La tierra habitable es igual a 0,71 (porcentaje de tierra habitable) por la superficie terrestre. Fuente\footnote{https://ourworldindata.org/land-use}. 
+    
+    \item $T$ = 14894e+10. Superficie terrestre de la tierra en $m^{2}$. Fuente\footnote{https://es.wikipedia.org/wiki/Tierra\#cite\_note-Pidwirny\_2006-10}.
+    
+    \item $M_{V}$ = 5,4. \'Area de una vivienda, basada en la medida que el comit\'e internacional de la Cruz Roja recomienda para una celda. Fuente\footnote{https://en.wikipedia.org/wiki/Prison\_cell}.
+    
+    \item $C_{kcal} = 547.500$. Kilocalor\'ias que necesita una persona al a\~no = Kilocalor\'ias que necesita una persona al d\'ia por d\'ias en el a\~no. Fuente\footnote{http://www.dietas.net/adelgazar/cuantas-calorias-necesitas-para-sobrevivir.html\#}.  
+    
+    \item $C_{AP} = {2\cdot365}$. Una persona necesita 2 litros cada d\'ia del a\~no. Fuente\footnote{https://www.clinicalascondes.cl/NOTICIAS/\%C2\%BFCuanta-agua-tomar-}.
+   
+    \item $C_{R} = {5,6\cdot2}$. Cantidad de tela necesaria para por set de vestimenta (camisa + calzoncillos + buzo), por 2 (son necesarios dos sets anualmente). Fuente\footnote{https://blog.trapitos.com.ar/calculador-de-telas/tela-para-indumentaria}.
+   
+    \item $C_{O2} =$ 56.210. Ox\'igeno que una persona necesita al a\~no, medido en litros. Fuente\footnote{https://www.xatakaciencia.com/quimica/cuanto-oxigeno-respira-toda-humanidad}. 
+    
+    \item $C_{E} =$ 186439080. Watts de electricidad ocupados por una persona en un a\~no. Fuente\footnote{https://en.wikipedia.org/wiki/World\_energy\_consumption}. 
+  
+    \item $R_{kcal}$ = 2.743. Producci\'on de Kcal provenientes de soja en un $m^{2}$ en un a\~no. Fuente\footnote{https://www.mujerdeelite.com/guia_de_alimentos/882/soja-en-grano}.
+  
+   \item $R_{AP}$ = 321.064. Cantidad de $L$ de agua que se producen por $m^{2}$ al a\~no. Fuente\footnote{http://www.elaguapotable.com/Proceso\%20potabilizaci\%C3\%B3n(Sansa).pdf} y Fuente\footnote{https://www.google.cl/maps/dir/-27.373788,-55.9037216/-27.3739668,-55.9023346/@-27.3745406,-55.9039201,18z/data=!4m2!4m1!3e0\%}. 
+  
+    \item $R_{R}$ = A trav\'es de una comparaci\'on de las resoluciones de los modelos adjuntos en los ap\'endices A y B (an\'alisis de sensibilidad) se desprende que las variables relacionadas a la vestimenta no afectan al modelo suficientemente para ser consideradas apreciables. En otras palabras el valor del rendimiento de la vestimenta no va a afectar al modelo suficientemente para que sea necesario su inclusi\'on. Esto se concluy\'o gracias a la resoluci\'on de uno de los modelos (apvendice A) usando un valor exageradamente grande, y a la resoluci\'on del otro usando un valor exageradamente peque\~no.  
+  
+    \item $R_{O2}$ = 162,8. Son los litros que se producen por $m^{2}$ al a\~no. Un humano consume 740 kg de ox\'igeno al a\~no y un \'arbol de sycamore produce 100 kg al a\~no. Lo que significa que una persona necesita 7.4 arboles para tener suficiente ox\'igeno. Esto en litros es 651,2. El ancho de este \'arbol es de 4$m^{2}$. Si dividimos 651,2 en 4 nos da la cantidad de litros por $m^{2}$. Fuente\footnote{https://www.sciencefocus.com/planet-earth/how-many-trees-does-it-take-to-produce-oxygen-for-one-person/} y Fuente\footnote{https://en.wikipedia.org/wiki/Platanus\_occidentalis}.  
+    
+    \item $R_{EN}$ = 4.7125. Son los Watts por $m^{2}$ que se producen al a\~no. Esto se calcul\'o de la siguiente manera: 377 MW convertido a Watts = 377000000 Watts dividido en 80 $km^{2}$ pasado a $m^{2}$ = 80000000 $m^{2}$. Fuente\footnote{https://en.wikipedia.org/wiki/Rapel_Dam} y Fuente\footnote{https://es.wikipedia.org/wiki/Lago\_Rapel}.
+    
+\end{enumerate}
+\newpage
+%-------------------------------------------------------------------------------
+% SUBSECTION (ANALISIS DE LA EJEMPLIFICACION)
+%-------------------------------------------------------------------------------
+\section*{An\'alisis de la ejemplificaci\'on}
+\addcontentsline{toc}{subsection}{An\'alisis de la ejemplificaci\'on}
+En la primera soluci\'on, presente en el ap\'endice A, se presentan valores relativamente incoherentes con la realidad, debido a que esta adaptado a un caso en el que el grupo tiene como objetivo la cantidad m\'axima absoluta que es posible tener y para ello es necesario plantear el modelo para que el ser humano meramente sobreviva. Es por esto que nos podemos fijar que el espacio utilizado en la creaci\'on de consumos es bastante chica mientras que la cantidad de personas que hay es muy grande. 
+
+La respuesta del segundo modelo no difiere en casi nada con respecto a la primera y solamente existe para demostrar que el rendimiento de la ropa es despreciable, ya que la \'unica variable distinta entre el primer y segundo modelo es esa y aun as\'i los valores finales son, en t\'erminos generales, iguales. 
+
+Las respuesta del tercer modelo demuestra una soluci\'n basada en valores que no pertenecen a una situaci\'on de supervivencia, y por lo tanto esta todo el mundo mas c\'modo, lo que significa que hay mas espacio destinado a cada persona y por lo tanto cabe menos gente en el mundo. Los valores utilizados para este modelo no son reales, simplemente son m\'as altos con el \'unico objetivo de demostrar que al aumentar la comodidad disminuye la capacidad de carga del mundo.
+
+
+
+
+
+\section*{Apendice A}
+\addcontentsline{toc}{section}{Apendice A}
+%-------------------------------------------------------------------------------
+% APENDICE
+%-------------------------------------------------------------------------------
+\subsection*{Apendice A: Modelo}
+
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+import pulp
+
+my_lp_problem = pulp.LpProblem("My LP Problem", pulp.LpMaximize)
+
+######### -------- VARIABLES -------- ########
+# Numero de personas, queremos maximizar
+NP = pulp.LpVariable('Np', lowBound=0, cat='Continuous')
+# Cantidad de comida que se produce, cal/a\~no
+Nkcal = pulp.LpVariable('Nkcal', lowBound=0, cat='Continuous')
+# Espacio que se ocupa para producir la comida en metros cuadrados
+Ekcal = pulp.LpVariable("Ekcal", lowBound=0, cat='Continuous')
+# Numero de viviendas
+Nv = pulp.LpVariable("Nv", lowBound=0, cat='Continuous')
+# Espacio total que ocupan las viviendas en metros cuadrados
+Ev = pulp.LpVariable("Ev", lowBound=0, cat='Contirnuous')
+# Cantidad de oxigeno que se produce, litros/a\~no
+No2 = pulp.LpVariable("No2", lowBound=0, cat='Contirnuous')
+# Espacio para produccion de oxigeno
+Eo2 = pulp.LpVariable("Eo2", lowBound=0, cat='Contirnuous')
+# Cantidad de agua producida litros/a\~no
+Nap = pulp.LpVariable("Nap", lowBound=0, cat='Contirnuous')
+# Espacio que se usa para procesar/tratar el agua
+Eap = pulp.LpVariable("Eap", lowBound=0, cat='Contirnuous')
+# Cantidad de ropa producida al a\~no
+Nr = pulp.LpVariable("Nr", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir ropa
+Er = pulp.LpVariable("Er", lowBound=0, cat='Contirnuous')
+# energia necesaria para satisfacer lo necesario
+Ne = pulp.LpVariable("Ne", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir la energia
+Ee = pulp.LpVariable("Ee", lowBound=0, cat='Contirnuous')
+
+######### -------- PARAMETROS -------- ########
+# Superficie terrestre del planeta
+T = 148940000000000
+# Kilocalorias que una persona necesita al a\~no
+Ckcal = 1/547500
+# Litros de oxigeno que una persona necesita al a\~no, solo 28% porque el otro 72 viene de algas marinas
+Co2 = 1/56210
+# Espacio de una vivienda, 4.5 = tama\~no de una celda de la carcel
+Mv = 1/5.4
+# Cantidad de ropa que una persona necesita al a\~no en m2
+Cr = 1/(5.6*2)
+# Cantidad de agua que una persona necesita al a\~no en litros
+Cap = 1/(2*365)
+# energia necesitada por persona en m^2
+Ce = 1/8875469
+# Rendimiento de la comdia por metro cuadrado, en el a\~no 
+Rkcal = 2743
+# Rendimiento del oxigeno por metro cuadrado, en el a\~no
+Ro2 = 162
+# Rendimiento del agua potablo por metro cuadrado, en el a\~no
+Rap = 321064
+# rendimiento de la ropa por metro cuadrado, en el a\~no
+Rr = 1000
+# rendimiento de energia, watts que se producen al a\~no por m^2
+Ren = 4.7125
+# tierra habitable (71% de la superficie terrestre)
+Th = T * 0.71
+# tierra cultivable (37% de la superficie terrestre)
+Tc = T * 0.37
+
+# -------- FUNCION OBJETIVO -------- #
+my_lp_problem += NP, "Z"
+
+# -------- RESTRICCIONES -------- #
+
+# ---- RESTRICCIONES GENERALES ---- #
+# suma de areas que van en espacio habitable tiene que ser menor o igual a Th
+my_lp_problem += Ev + Eo2 + Eap <= Th  
+# suma de areas que van en espacio cultivable tienen que ser menor o igual a Tc
+my_lp_problem += Ekcal <= Tc  
+# suma de todas las areas tiene que ser menor o igual a la superficie
+my_lp_problem += Eo2 + Ekcal + Ev + Eap <= T  
+
+# ---- RESTRICCIONES PARA LAS VIVIENDAS ---- #
+# el numero de personas tiene que ser menor o igual a las viviendas (1:1)
+my_lp_problem += NP <= Nv  
+# espacio que ocupan las casas partido en el numero de casas
+my_lp_problem += Nv == Ev*Mv  
+
+# ---- RESTRICCIONES PARA LA COMIDA ---- #
+# numero de personas tiene que ser menor que la comida que se produce/lo que 1 come
+my_lp_problem += NP <= Nkcal*Ckcal  
+# espacio ocupado en comida por lo que produce cada espacio = total comida prod.
+my_lp_problem += Nkcal == Ekcal*Rkcal  
+
+# ---- RESTRICCIONES PARA EL OXIGENO ---- #
+# numero de personas es dependiente de la cantidad de oxigeno que se produce necesa
+my_lp_problem += NP <= No2*Co2  
+# cantidad de ixgeno producido es igual al espacio que usa por el rendimiento
+my_lp_problem += No2 == Eo2*Ro2  
+
+# ---- RESTRICCIONES PARA EL AGUA ---- #
+# numero de personas tiene que ser menor que el agua que se produce/lo que 1 toma
+my_lp_problem += NP <= Nap*Cap  
+# cantidad de agua producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nap == Eap*Rap  
+
+# ---- RESTRICCIONES PARA LA ROPA ---- #
+# numero de personas tiene que ser menor que la ropa que se produce/lo que 1 necesita
+my_lp_problem += NP <= Nr*Cr  
+# cantidad de ropa producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nr == Er*Rr  
+
+# ---- RESTRICCIONES PARA LA ENERGIA ---- #
+# numero de personas tiene que ser menor que la energia que se produce/energia necesaria por persona
+my_lp_problem += NP <= Ne*Ce
+# cantidad de energia producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Ne == Ee*Ren
+
+print(my_lp_problem.solve())
+print(pulp.LpStatus[my_lp_problem.status])
+
+for variable in my_lp_problem.variables():
+    print("{} = {}".format(variable.name, variable.varValue))
+\end{lstlisting}
+
+
+%-------------------------------------------------------------------------------
+% APENDICE
+%-------------------------------------------------------------------------------
+\subsection*{Apendice A: Soluci\'on}
+
+
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+Optimal
+Eap = 613510440.0
+Ee = 5.0819532e+17
+Ekcal = 53857852000000.0
+Eo2 = 93624451000000.0
+Er = 30220993000.0
+Ev = 1457083600000.0
+NP = 269830300000.0
+Nap = 196976120000000.0
+Ne = 2.3948704e+18
+Nkcal = 1.4773209e+17
+No2 = 1.5167161e+16
+Nr = 3022099300000.0
+Nv = 269830300000.0
+
+Process finished with exit code 0
+\end{lstlisting}
+
+\newpage
+%-------------------------------------------------------------------------------
+% APENDICE
+%-------------------------------------------------------------------------------
+\section*{Apendice B}
+\addcontentsline{toc}{section}{Apendice B}
+
+\subsection*{Apendice B: Modelo}
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+import pulp
+
+my_lp_problem = pulp.LpProblem("My LP Problem", pulp.LpMaximize)
+
+######### -------- VARIABLES -------- ########
+# Numero de personas, queremos maximizar
+NP = pulp.LpVariable('NP', lowBound=0, cat='Continuous')
+# Cantidad de comida que se produce, cal/a\~no
+Nkcal = pulp.LpVariable('Nkcal', lowBound=0, cat='Continuous')
+# Espacio que se ocupa para producir la comida en metros cuadrados
+Ekcal = pulp.LpVariable("Ekcal", lowBound=0, cat='Continuous')
+# Numero de viviendas
+Nv = pulp.LpVariable("Nv", lowBound=0, cat='Continuous')
+# Espacio total que ocupan las viviendas en metros cuadrados
+Ev = pulp.LpVariable("Ev", lowBound=0, cat='Contirnuous')
+# Cantidad de oxigeno que se produce, litros/a\~no
+No2 = pulp.LpVariable("No2", lowBound=0, cat='Contirnuous')
+# Espacio para produccion de oxigeno
+Eo2 = pulp.LpVariable("Eo2", lowBound=0, cat='Contirnuous')
+# Cantidad de agua producida litros/a\~no
+Nap = pulp.LpVariable("Nap", lowBound=0, cat='Contirnuous')
+# Espacio que se usa para procesar/tratar el agua
+Eap = pulp.LpVariable("Eap", lowBound=0, cat='Contirnuous')
+# Cantidad de ropa producida al a\~no
+Nr = pulp.LpVariable("Nr", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir ropa
+Er = pulp.LpVariable("Er", lowBound=0, cat='Contirnuous')
+# energia necesaria para satisfacer lo neesario
+Ne = pulp.LpVariable("Ne", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir la energia
+Ee = pulp.LpVariable("Ee", lowBound=0, cat='Contirnuous')
+
+######### -------- PARAMETROS -------- ########
+# Superficie terrestre del planeta
+T = 148940000000000
+# Kilocalorias que una persona necesita al a\~no547500
+Ckcal = 1/547500
+# Litros de oxigeno que una persona necesita al a\~no, solo 28% porque el otro 72 viene de algas marinas
+Co2 = 1/56210
+# Espacio de una vivienda, 4.5 = tama\~no de una celda de la carcel
+Mv = 1/5.4
+# Cantidad de ropa que una persona necesita al a\~no en m2
+Cr = 1/(5.6*2)
+# Cantidad de agua que una persona necesita al a\~no en litros
+Cap = 1/(2*365)
+# energia necesitada por persona en m^2
+Ce = 1/8875469
+# Rendimiento de la comdia por metro cuadrado, en el a\~no 2743
+Rkcal = 2743
+# Rendimiento del oxigeno por metro cuadrado, en el a\~no
+Ro2 = 162
+# Rendimiento del agua potablo por metro cuadrado, en el a\~no
+Rap = 321064
+# rendimiento de la ropa por metro cuadrado, en el a\~no
+Rr = 10000000000000
+# rendimiento de energia, watts que se producen al a\~no por m^2
+Ren = 4.7125
+# tierra habitable (71% de la superficie terrestre)
+Th = T * 0.71
+# tierra cultivable (37% de la superficie terrestre)
+Tc = T * 0.37
+
+# -------- FUNCION OBJETIVO -------- #
+my_lp_problem += NP, "Z"
+
+# -------- RESTRICCIONES -------- #
+
+# ---- RESTRICCIONES GENERALES ---- #
+# suma de areas que van en espacio habitable tiene que ser menor o igual a Th
+my_lp_problem += Ev + Eo2 + Eap <= Th  
+# suma de areas que van en espacio cultivable tienen que ser menor o igual a Tc
+my_lp_problem += Ekcal <= Tc  
+# suma de todas las areas tiene que ser menor o igual a la superficie
+my_lp_problem += Eo2 + Ekcal + Ev + Eap <= T  
+
+# ---- RESTRICCIONES PARA LAS VIVIENDAS ---- #
+# el numero de personas tiene que ser menor o igual a las viviendas (1:1)
+my_lp_problem += NP <= Nv  
+# espacio que ocupan las casas partido en el numero de casas
+my_lp_problem += Nv == Ev*Mv  
+
+# ---- RESTRICCIONES PARA LA COMIDA ---- #
+# numero de personas tiene que ser menor que la comida que se produce/lo que 1 come
+my_lp_problem += NP <= Nkcal*Ckcal  
+# espacio ocupado en comida por lo que produce cada espacio = total comida prod.
+my_lp_problem += Nkcal == Ekcal*Rkcal 
+
+# ---- RESTRICCIONES PARA EL OXIGENO ---- #
+# numero de personas es dependiente de la cantidad de oxigeno que se produce necesa
+my_lp_problem += NP <= No2*Co2  
+# cantidad de ixgeno producido es igual al espacio que usa por el rendimiento
+my_lp_problem += No2 == Eo2*Ro2  
+
+# ---- RESTRICCIONES PARA EL AGUA ---- #
+# numero de personas tiene que ser menor que el agua que se produce/lo que 1 toma
+my_lp_problem += NP <= Nap*Cap  
+# cantidad de agua producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nap == Eap*Rap  
+
+# ---- RESTRICCIONES PARA LA ROPA ---- #
+# numero de personas tiene que ser menor que la ropa que se produce/lo que 1 necesita
+my_lp_problem += NP <= Nr*Cr  
+# cantidad de ropa producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nr == Er*Rr  
+
+# ---- RESTRICCIONES PARA LA ENERGIA ---- #
+# numero de personas tiene que ser menor que la energia que se produce/energia necesaria por persona
+my_lp_problem += NP <= Ne*Ce
+# cantidad de energia producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Ne == Ee*Ren
+
+print(my_lp_problem.solve())
+print(pulp.LpStatus[my_lp_problem.status])
+
+for variable in my_lp_problem.variables():
+    print("{} = {}".format(variable.name, variable.varValue))
+
+\end{lstlisting}
+
+\subsection*{Apendice B: Soluci\'on}
+
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+Optimal
+Eap = 613510440.0
+Ee = 5.0819532e+17
+Ekcal = 53857852000000.0
+Eo2 = 93624451000000.0
+Er = 0.30220993
+Ev = 1457083600000.0
+NP = 269830300000.0
+Nap = 196976120000000.0
+Ne = 2.3948704e+18
+Nkcal = 1.4773209e+17
+No2 = 1.5167161e+16
+Nr = 3022099300000.0
+Nv = 269830300000.0
+
+Process finished with exit code 0
+\end{lstlisting}
+
+\newpage
+%-------------------------------------------------------------------------------
+% APENDICE
+%-------------------------------------------------------------------------------
+\section*{Apendice C}
+\addcontentsline{toc}{section}{Apendice C}
+
+\subsection*{Apendice C: Modelo}
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+import pulp
+
+my_lp_problem = pulp.LpProblem("My LP Problem", pulp.LpMaximize)
+
+######### -------- VARIABLES -------- ########
+# Numero de personas, queremos maximizar
+NP = pulp.LpVariable('NP', lowBound=0, cat='Continuous')
+# Cantidad de comida que se produce, cal/a\~no
+Nkcal = pulp.LpVariable('Nkcal', lowBound=0, cat='Continuous')
+# Espacio que se ocupa para producir la comida en metros cuadrados
+Ekcal = pulp.LpVariable("Ekcal", lowBound=0, cat='Continuous')
+# Numero de viviendas
+Nv = pulp.LpVariable("Nv", lowBound=0, cat='Continuous')
+# Espacio total que ocupan las viviendas en metros cuadrados
+Ev = pulp.LpVariable("Ev", lowBound=0, cat='Contirnuous')
+# Cantidad de oxigeno que se produce, litros/a\~no
+No2 = pulp.LpVariable("No2", lowBound=0, cat='Contirnuous')
+# Espacio para produccion de oxigeno
+Eo2 = pulp.LpVariable("Eo2", lowBound=0, cat='Contirnuous')
+# Cantidad de agua producida litros/a\~no
+Nap = pulp.LpVariable("Nap", lowBound=0, cat='Contirnuous')
+# Espacio que se usa para procesar/tratar el agua
+Eap = pulp.LpVariable("Eap", lowBound=0, cat='Contirnuous')
+# Cantidad de ropa producida al a\~no
+Nr = pulp.LpVariable("Nr", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir ropa
+Er = pulp.LpVariable("Er", lowBound=0, cat='Contirnuous')
+# energia necesaria para satisfacer lo neesario
+Ne = pulp.LpVariable("Ne", lowBound=0, cat='Contirnuous')
+# espacio ocupado para producir la energia
+Ee = pulp.LpVariable("Ee", lowBound=0, cat='Contirnuous')
+
+######### -------- PARAMETROS -------- ########
+# Superficie terrestre del planeta
+T = 148940000000000
+# Kilocalorias que una persona necesita al a\~no547500
+Ckcal = 1/912500
+# Litros de oxigeno que una persona necesita al a\~no, solo 28% porque el otro 72 viene de algas marinas
+Co2 = 1/56210
+# Espacio de una vivienda, 4.5 = tama\~no de una celda de la carcel
+Mv = 1/25
+# Cantidad de ropa que una persona necesita al a\~no en m2
+Cr = 1/(56)
+# Cantidad de agua que una persona necesita al a\~no en litros
+Cap = 1/54750
+# energia necesitada por persona en m^2
+Ce = 1/8875469
+# Rendimiento de la comdia por metro cuadrado, en el a\~no 2743
+Rkcal = 2743
+# Rendimiento del oxigeno por metro cuadrado, en el a\~no
+Ro2 = 162
+# Rendimiento del agua potablo por metro cuadrado, en el a\~no
+Rap = 321064
+# rendimiento de la ropa por metro cuadrado, en el a\~no
+Rr = 100000
+# rendimiento de energia, watts que se producen al a\~no por m^2
+Ren = 4.7125
+# tierra habitable (71% de la superficie terrestre)
+Th = T * 0.71
+# tierra cultivable (37% de la superficie terrestre)
+Tc = T * 0.37
+
+# -------- FUNCION OBJETIVO -------- #
+my_lp_problem += NP, "Z"
+
+# -------- RESTRICCIONES -------- #
+
+# ---- RESTRICCIONES GENERALES ---- #
+# suma de areas que van en espacio habitable tiene que ser menor o igual a Th
+my_lp_problem += Ev + Eo2 + Eap <= Th
+# suma de areas que van en espacio cultivable tienen que ser menor o igual a Tc
+my_lp_problem += Ekcal <= Tc
+# suma de todas las areas tiene que ser menor o igual a la superficie
+my_lp_problem += Eo2 + Ekcal + Ev + Eap <= T
+
+# ---- RESTRICCIONES PARA LAS VIVIENDAS ---- #
+# el numero de personas tiene que ser menor o igual a las viviendas (1:1)
+my_lp_problem += NP <= Nv
+# espacio que ocupan las casas partido en el numero de casas
+my_lp_problem += Nv == Ev*Mv
+
+# ---- RESTRICCIONES PARA LA COMIDA ---- #
+# numero de personas tiene que ser menor que la comida que se produce/lo que 1 come
+my_lp_problem += NP <= Nkcal*Ckcal
+# espacio ocupado en comida por lo que produce cada espacio = total comida prod.
+my_lp_problem += Nkcal == Ekcal*Rkcal
+
+# ---- RESTRICCIONES PARA EL OXIGENO ---- #
+# numero de personas es dependiente de la cantidad de oxigeno que se produce necesa
+my_lp_problem += NP <= No2*Co2
+# cantidad de ixgeno producido es igual al espacio que usa por el rendimiento
+my_lp_problem += No2 == Eo2*Ro2
+
+# ---- RESTRICCIONES PARA EL AGUA ---- #
+# numero de personas tiene que ser menor que el agua que se produce/lo que 1 toma
+my_lp_problem += NP <= Nap*Cap
+# cantidad de agua producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nap == Eap*Rap
+
+# ---- RESTRICCIONES PARA LA ROPA ---- #
+# numero de personas tiene que ser menor que la ropa que se produce/lo que 1 necesita
+my_lp_problem += NP <= Nr*Cr
+# cantidad de ropa producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Nr == Er*Rr
+
+# ---- RESTRICCIONES PARA LA ENERGIA ---- #
+# numero de personas tiene que ser menor que la energia que se produce/energia necesaria por persona
+my_lp_problem += NP <= Ne*Ce
+# cantidad de energia producida es igual al espacio que usa por el rendimiento
+my_lp_problem += Ne == Ee*Ren
+
+print(my_lp_problem.solve())
+print(pulp.LpStatus[my_lp_problem.status])
+
+for variable in my_lp_problem.variables():
+    print("{} = {}".format(variable.name, variable.varValue))
+
+
+\end{lstlisting}
+
+\subsection*{Apendice C: Soluci\'on}
+
+\begin{lstlisting}[language=Python, frame=single, basicstyle=\tiny]
+Optimal
+Eap = 28248703000.0
+Ee = 3.1199379e+17
+Ekcal = 55107800000000.0
+Eo2 = 57478388000000.0
+Er = 92767112.0
+Ev = 4141388900000.0
+NP = 165655560000.0
+Nap = 9069641700000000.0
+Ne = 1.4702708e+18
+Nkcal = 1.511607e+17
+No2 = 9311498800000000.0
+Nr = 9276711200000.0
+Nv = 165655560000.0
+
+Process finished with exit code 0
+\end{lstlisting}
+
+
+
+
+\end{document}
+
+%-------------------------------------------------------------------------------
+% SNIPPETS
+%-------------------------------------------------------------------------------
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{file_name}
+%	\caption{}
+%	\centering
+%	\label{label:file_name}
+%\end{figure}
+
+%\begin{figure}[!ht]
+%	\centering
+%	\includegraphics[width=0.8\textwidth]{graph}
+%	\caption{Blood pressure ranges and associated level of hypertension (American Heart Association, 2013).}
+%	\centering
+%	\label{label:graph}
+%\end{figure}
+
+%\begin{wrapfigure}{r}{0.30\textwidth}
+%	\vspace{-40pt}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{file_name}
+%	\end{center}
+%	\vspace{-20pt}
+%	\caption{}
+%	\label{label:file_name}
+%\end{wrapfigure}
+
+%\begin{wrapfigure}{r}{0.45\textwidth}
+%	\begin{center}
+%		\includegraphics[width=0.29\textwidth]{manometer}
+%	\end{center}
+%	\caption{Aneroid sphygmomanometer with stethoscope (Medicalexpo, 2012).}
+%	\label{label:manometer}
+%\end{wrapfigure}
+
+%\begin{table}[!ht]\footnotesize
+%	\centering
+%	\begin{tabular}{cccccc}
+%	\toprule
+%	\multicolumn{2}{c} {Pearson's correlation test} & \multicolumn{4}{c} {Independent t-test} \\
+%	\midrule	
+%	\multicolumn{2}{c} {Gender} & \multicolumn{2}{c} {Activity level} & \multicolumn{2}{c} {Gender} \\
+%	\midrule
+%	Males & Females & 1st level & 6th level & Males & Females \\
+%	\midrule
+%	\multicolumn{2}{c} {BMI vs. SP} & \multicolumn{2}{c} {Systolic pressure} & \multicolumn{2}{c} {Systolic Pressure} \\
+%	\multicolumn{2}{c} {BMI vs. DP} & \multicolumn{2}{c} {Diastolic pressure} & \multicolumn{2}{c} {Diastolic pressure} \\
+%	\multicolumn{2}{c} {BMI vs. MAP} & \multicolumn{2}{c} {MAP} & \multicolumn{2}{c} {MAP} \\
+%	\multicolumn{2}{c} {W:H ratio vs. SP} & \multicolumn{2}{c} {BMI} & \multicolumn{2}{c} {BMI} \\
+%	\multicolumn{2}{c} {W:H ratio vs. DP} & \multicolumn{2}{c} {W:H ratio} & \multicolumn{2}{c} {W:H ratio} \\
+%	\multicolumn{2}{c} {W:H ratio vs. MAP} & \multicolumn{2}{c} {\% Body fat} & \multicolumn{2}{c} {\% Body fat} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Height} & \multicolumn{2}{c} {Height} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Weight} & \multicolumn{2}{c} {Weight} \\
+%	\multicolumn{2}{c} {} & \multicolumn{2}{c} {Heart rate} & \multicolumn{2}{c} {Heart rate} \\
+%	\bottomrule
+%	\end{tabular}
+%	\caption{Parameters that were analysed and related statistical test performed for current study. BMI - body mass index; SP - systolic pressure; DP - diastolic pressure; MAP - mean arterial pressure; W:H ratio - waist to hip ratio.}
+%	\label{label:tests}
+%\end{table}
